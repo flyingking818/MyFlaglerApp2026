@@ -28,7 +28,273 @@
         /// </summary>
         private void InitializeComponent()
         {
+            grpPersonnel = new GroupBox();
+            rdoStaff = new RadioButton();
+            rdoStudent = new RadioButton();
+            rdoProfessor = new RadioButton();
+            grpBasicInfo = new GroupBox();
+            txtEmail = new TextBox();
+            label3 = new Label();
+            txtID = new TextBox();
+            label2 = new Label();
+            txtName = new TextBox();
+            label1 = new Label();
+            grpProfessor = new GroupBox();
+            chkTerminalDegree = new CheckBox();
+            cboDepartment = new ComboBox();
+            label4 = new Label();
+            txtResearchArea = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            grpStudent = new GroupBox();
+            chkFullTime = new CheckBox();
+            cboMajor = new ComboBox();
+            txtGPA = new TextBox();
+            label8 = new Label();
+            label9 = new Label();
+            grpPersonnel.SuspendLayout();
+            grpBasicInfo.SuspendLayout();
+            grpProfessor.SuspendLayout();
+            grpStudent.SuspendLayout();
             SuspendLayout();
+            // 
+            // grpPersonnel
+            // 
+            grpPersonnel.Controls.Add(rdoStaff);
+            grpPersonnel.Controls.Add(rdoStudent);
+            grpPersonnel.Controls.Add(rdoProfessor);
+            grpPersonnel.Location = new Point(41, 103);
+            grpPersonnel.Name = "grpPersonnel";
+            grpPersonnel.Size = new Size(688, 166);
+            grpPersonnel.TabIndex = 0;
+            grpPersonnel.TabStop = false;
+            grpPersonnel.Text = "Personnel";
+            // 
+            // rdoStaff
+            // 
+            rdoStaff.AutoSize = true;
+            rdoStaff.Location = new Point(425, 73);
+            rdoStaff.Name = "rdoStaff";
+            rdoStaff.Size = new Size(93, 36);
+            rdoStaff.TabIndex = 2;
+            rdoStaff.TabStop = true;
+            rdoStaff.Text = "Staff";
+            rdoStaff.UseVisualStyleBackColor = true;
+            // 
+            // rdoStudent
+            // 
+            rdoStudent.AutoSize = true;
+            rdoStudent.Location = new Point(228, 73);
+            rdoStudent.Name = "rdoStudent";
+            rdoStudent.Size = new Size(128, 36);
+            rdoStudent.TabIndex = 1;
+            rdoStudent.TabStop = true;
+            rdoStudent.Text = "Student";
+            rdoStudent.UseVisualStyleBackColor = true;
+            // 
+            // rdoProfessor
+            // 
+            rdoProfessor.AutoSize = true;
+            rdoProfessor.Location = new Point(29, 73);
+            rdoProfessor.Name = "rdoProfessor";
+            rdoProfessor.Size = new Size(143, 36);
+            rdoProfessor.TabIndex = 0;
+            rdoProfessor.TabStop = true;
+            rdoProfessor.Text = "Professor";
+            rdoProfessor.UseVisualStyleBackColor = true;
+            // 
+            // grpBasicInfo
+            // 
+            grpBasicInfo.Controls.Add(txtEmail);
+            grpBasicInfo.Controls.Add(label3);
+            grpBasicInfo.Controls.Add(txtID);
+            grpBasicInfo.Controls.Add(label2);
+            grpBasicInfo.Controls.Add(txtName);
+            grpBasicInfo.Controls.Add(label1);
+            grpBasicInfo.Location = new Point(41, 293);
+            grpBasicInfo.Name = "grpBasicInfo";
+            grpBasicInfo.Size = new Size(688, 263);
+            grpBasicInfo.TabIndex = 1;
+            grpBasicInfo.TabStop = false;
+            grpBasicInfo.Text = "Basic Information";
+            // 
+            // txtEmail
+            // 
+            txtEmail.BackColor = Color.FromArgb(255, 224, 192);
+            txtEmail.Location = new Point(198, 197);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(462, 39);
+            txtEmail.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(21, 195);
+            label3.Name = "label3";
+            label3.Size = new Size(76, 32);
+            label3.TabIndex = 4;
+            label3.Text = "Email:";
+            // 
+            // txtID
+            // 
+            txtID.BackColor = Color.FromArgb(255, 224, 192);
+            txtID.Location = new Point(198, 128);
+            txtID.Name = "txtID";
+            txtID.Size = new Size(462, 39);
+            txtID.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(21, 126);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 32);
+            label2.TabIndex = 2;
+            label2.Text = "ID:";
+            // 
+            // txtName
+            // 
+            txtName.BackColor = Color.FromArgb(255, 224, 192);
+            txtName.Location = new Point(198, 67);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(462, 39);
+            txtName.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(21, 65);
+            label1.Name = "label1";
+            label1.Size = new Size(83, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Name:";
+            // 
+            // grpProfessor
+            // 
+            grpProfessor.Controls.Add(chkTerminalDegree);
+            grpProfessor.Controls.Add(cboDepartment);
+            grpProfessor.Controls.Add(label4);
+            grpProfessor.Controls.Add(txtResearchArea);
+            grpProfessor.Controls.Add(label5);
+            grpProfessor.Controls.Add(label6);
+            grpProfessor.Location = new Point(41, 609);
+            grpProfessor.Name = "grpProfessor";
+            grpProfessor.Size = new Size(688, 263);
+            grpProfessor.TabIndex = 6;
+            grpProfessor.TabStop = false;
+            grpProfessor.Text = "Professor Information";
+            // 
+            // chkTerminalDegree
+            // 
+            chkTerminalDegree.AutoSize = true;
+            chkTerminalDegree.Location = new Point(29, 195);
+            chkTerminalDegree.Name = "chkTerminalDegree";
+            chkTerminalDegree.Size = new Size(28, 27);
+            chkTerminalDegree.TabIndex = 7;
+            chkTerminalDegree.UseVisualStyleBackColor = true;
+            // 
+            // cboDepartment
+            // 
+            cboDepartment.FormattingEnabled = true;
+            cboDepartment.Items.AddRange(new object[] { "Math & Technology", "Business Administration", "Fine Arts", "Sociology", "Hospitality", "Other" });
+            cboDepartment.Location = new Point(200, 65);
+            cboDepartment.Name = "cboDepartment";
+            cboDepartment.Size = new Size(460, 40);
+            cboDepartment.TabIndex = 6;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(63, 191);
+            label4.Name = "label4";
+            label4.Size = new Size(312, 32);
+            label4.TabIndex = 4;
+            label4.Text = "Terminal degree? (e.g., PhD)";
+            // 
+            // txtResearchArea
+            // 
+            txtResearchArea.BackColor = Color.FromArgb(255, 224, 192);
+            txtResearchArea.Location = new Point(198, 128);
+            txtResearchArea.Name = "txtResearchArea";
+            txtResearchArea.Size = new Size(462, 39);
+            txtResearchArea.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(21, 126);
+            label5.Name = "label5";
+            label5.Size = new Size(168, 32);
+            label5.TabIndex = 2;
+            label5.Text = "Research Area:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(21, 65);
+            label6.Name = "label6";
+            label6.Size = new Size(147, 32);
+            label6.TabIndex = 0;
+            label6.Text = "Department:";
+            // 
+            // grpStudent
+            // 
+            grpStudent.Controls.Add(chkFullTime);
+            grpStudent.Controls.Add(cboMajor);
+            grpStudent.Controls.Add(txtGPA);
+            grpStudent.Controls.Add(label8);
+            grpStudent.Controls.Add(label9);
+            grpStudent.Location = new Point(780, 609);
+            grpStudent.Name = "grpStudent";
+            grpStudent.Size = new Size(688, 263);
+            grpStudent.TabIndex = 8;
+            grpStudent.TabStop = false;
+            grpStudent.Text = "Student Information";
+            // 
+            // chkFullTime
+            // 
+            chkFullTime.AutoSize = true;
+            chkFullTime.Location = new Point(21, 187);
+            chkFullTime.Name = "chkFullTime";
+            chkFullTime.Size = new Size(155, 36);
+            chkFullTime.TabIndex = 7;
+            chkFullTime.Text = "Full Time?";
+            chkFullTime.UseVisualStyleBackColor = true;
+            // 
+            // cboMajor
+            // 
+            cboMajor.FormattingEnabled = true;
+            cboMajor.Items.AddRange(new object[] { "Computer Information Systems", "Data Science", "Math", "Psychology", "History", "Graphic Design", "Other" });
+            cboMajor.Location = new Point(200, 65);
+            cboMajor.Name = "cboMajor";
+            cboMajor.Size = new Size(460, 40);
+            cboMajor.TabIndex = 6;
+            // 
+            // txtGPA
+            // 
+            txtGPA.BackColor = Color.FromArgb(255, 224, 192);
+            txtGPA.Location = new Point(198, 128);
+            txtGPA.Name = "txtGPA";
+            txtGPA.Size = new Size(161, 39);
+            txtGPA.TabIndex = 3;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(21, 126);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 32);
+            label8.TabIndex = 2;
+            label8.Text = "GPA:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(21, 65);
+            label9.Name = "label9";
+            label9.Size = new Size(81, 32);
+            label9.TabIndex = 0;
+            label9.Text = "Major:";
             // 
             // MainForm
             // 
@@ -36,11 +302,48 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(2374, 1329);
+            Controls.Add(grpStudent);
+            Controls.Add(grpProfessor);
+            Controls.Add(grpBasicInfo);
+            Controls.Add(grpPersonnel);
             Name = "MainForm";
             Text = "Main Form";
+            grpPersonnel.ResumeLayout(false);
+            grpPersonnel.PerformLayout();
+            grpBasicInfo.ResumeLayout(false);
+            grpBasicInfo.PerformLayout();
+            grpProfessor.ResumeLayout(false);
+            grpProfessor.PerformLayout();
+            grpStudent.ResumeLayout(false);
+            grpStudent.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private GroupBox grpPersonnel;
+        private RadioButton rdoProfessor;
+        private RadioButton rdoStaff;
+        private RadioButton rdoStudent;
+        private GroupBox grpBasicInfo;
+        private TextBox txtName;
+        private Label label1;
+        private TextBox txtEmail;
+        private Label label3;
+        private TextBox txtID;
+        private Label label2;
+        private GroupBox grpProfessor;
+        private Label label4;
+        private TextBox txtResearchArea;
+        private Label label5;
+        private Label label6;
+        private ComboBox cboDepartment;
+        private CheckBox chkTerminalDegree;
+        private GroupBox grpStudent;
+        private CheckBox chkFullTime;
+        private ComboBox cboMajor;
+        private TextBox txtGPA;
+        private Label label8;
+        private Label label9;
     }
 }
