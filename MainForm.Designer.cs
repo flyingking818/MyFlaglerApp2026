@@ -47,15 +47,23 @@
             label5 = new Label();
             label6 = new Label();
             grpStudent = new GroupBox();
+            dtpEnrollmentDate = new DateTimePicker();
             chkFullTime = new CheckBox();
             cboMajor = new ComboBox();
             txtGPA = new TextBox();
             label8 = new Label();
             label9 = new Label();
+            grpStaff = new GroupBox();
+            this.chkAdministrative = new CheckBox();
+            txtDivision = new TextBox();
+            label10 = new Label();
+            label11 = new Label();
+            txtPosition = new TextBox();
             grpPersonnel.SuspendLayout();
             grpBasicInfo.SuspendLayout();
             grpProfessor.SuspendLayout();
             grpStudent.SuspendLayout();
+            grpStaff.SuspendLayout();
             SuspendLayout();
             // 
             // grpPersonnel
@@ -239,6 +247,7 @@
             // 
             // grpStudent
             // 
+            grpStudent.Controls.Add(dtpEnrollmentDate);
             grpStudent.Controls.Add(chkFullTime);
             grpStudent.Controls.Add(cboMajor);
             grpStudent.Controls.Add(txtGPA);
@@ -250,6 +259,14 @@
             grpStudent.TabIndex = 8;
             grpStudent.TabStop = false;
             grpStudent.Text = "Student Information";
+            // 
+            // dtpEnrollmentDate
+            // 
+            dtpEnrollmentDate.Format = DateTimePickerFormat.Short;
+            dtpEnrollmentDate.Location = new Point(207, 186);
+            dtpEnrollmentDate.Name = "dtpEnrollmentDate";
+            dtpEnrollmentDate.Size = new Size(219, 39);
+            dtpEnrollmentDate.TabIndex = 8;
             // 
             // chkFullTime
             // 
@@ -296,12 +313,71 @@
             label9.TabIndex = 0;
             label9.Text = "Major:";
             // 
+            // grpStaff
+            // 
+            grpStaff.Controls.Add(txtPosition);
+            grpStaff.Controls.Add(this.chkAdministrative);
+            grpStaff.Controls.Add(txtDivision);
+            grpStaff.Controls.Add(label10);
+            grpStaff.Controls.Add(label11);
+            grpStaff.Location = new Point(1510, 609);
+            grpStaff.Name = "grpStaff";
+            grpStaff.Size = new Size(688, 263);
+            grpStaff.TabIndex = 8;
+            grpStaff.TabStop = false;
+            grpStaff.Text = "Staff Information";
+            // 
+            // chkAdministrative
+            // 
+            this.chkAdministrative.AutoSize = true;
+            this.chkAdministrative.Location = new Point(29, 195);
+            this.chkAdministrative.Name = "chkAdministrative";
+            this.chkAdministrative.Size = new Size(230, 36);
+            this.chkAdministrative.TabIndex = 7;
+            this.chkAdministrative.Text = "Is administrative?";
+            this.chkAdministrative.UseVisualStyleBackColor = true;
+            // 
+            // txtDivision
+            // 
+            txtDivision.BackColor = Color.FromArgb(255, 224, 192);
+            txtDivision.Location = new Point(198, 128);
+            txtDivision.Name = "txtDivision";
+            txtDivision.Size = new Size(462, 39);
+            txtDivision.TabIndex = 3;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(21, 126);
+            label10.Name = "label10";
+            label10.Size = new Size(104, 32);
+            label10.TabIndex = 2;
+            label10.Text = "Division:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(21, 65);
+            label11.Name = "label11";
+            label11.Size = new Size(103, 32);
+            label11.TabIndex = 0;
+            label11.Text = "Position:";
+            // 
+            // txtPosition
+            // 
+            txtPosition.BackColor = Color.FromArgb(255, 224, 192);
+            txtPosition.Location = new Point(198, 66);
+            txtPosition.Name = "txtPosition";
+            txtPosition.Size = new Size(462, 39);
+            txtPosition.TabIndex = 8;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(2374, 1329);
+            Controls.Add(grpStaff);
             Controls.Add(grpStudent);
             Controls.Add(grpProfessor);
             Controls.Add(grpBasicInfo);
@@ -316,6 +392,8 @@
             grpProfessor.PerformLayout();
             grpStudent.ResumeLayout(false);
             grpStudent.PerformLayout();
+            grpStaff.ResumeLayout(false);
+            grpStaff.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -345,5 +423,14 @@
         private TextBox txtGPA;
         private Label label8;
         private Label label9;
+        private DateTimePicker dtpEnrollmentDate;
+        private GroupBox grpStaff;
+        private CheckBox checkBox1;
+        private ComboBox comboBox1;
+        private Label label7;
+        private TextBox txtDivision;
+        private Label label10;
+        private Label label11;
+        private TextBox txtPosition;
     }
 }
