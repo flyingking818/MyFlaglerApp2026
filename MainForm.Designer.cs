@@ -54,11 +54,12 @@
             label8 = new Label();
             label9 = new Label();
             grpStaff = new GroupBox();
-            this.chkAdministrative = new CheckBox();
+            chkAdministrative = new CheckBox();
+            txtPosition = new TextBox();
             txtDivision = new TextBox();
             label10 = new Label();
             label11 = new Label();
-            txtPosition = new TextBox();
+            btnDisplayProfile = new Button();
             grpPersonnel.SuspendLayout();
             grpBasicInfo.SuspendLayout();
             grpProfessor.SuspendLayout();
@@ -259,6 +260,7 @@
             grpStudent.TabIndex = 8;
             grpStudent.TabStop = false;
             grpStudent.Text = "Student Information";
+            grpStudent.Visible = false;
             // 
             // dtpEnrollmentDate
             // 
@@ -315,8 +317,8 @@
             // 
             // grpStaff
             // 
+            grpStaff.Controls.Add(chkAdministrative);
             grpStaff.Controls.Add(txtPosition);
-            grpStaff.Controls.Add(this.chkAdministrative);
             grpStaff.Controls.Add(txtDivision);
             grpStaff.Controls.Add(label10);
             grpStaff.Controls.Add(label11);
@@ -326,16 +328,25 @@
             grpStaff.TabIndex = 8;
             grpStaff.TabStop = false;
             grpStaff.Text = "Staff Information";
+            grpStaff.Visible = false;
             // 
             // chkAdministrative
             // 
-            this.chkAdministrative.AutoSize = true;
-            this.chkAdministrative.Location = new Point(29, 195);
-            this.chkAdministrative.Name = "chkAdministrative";
-            this.chkAdministrative.Size = new Size(230, 36);
-            this.chkAdministrative.TabIndex = 7;
-            this.chkAdministrative.Text = "Is administrative?";
-            this.chkAdministrative.UseVisualStyleBackColor = true;
+            chkAdministrative.AutoSize = true;
+            chkAdministrative.Location = new Point(21, 191);
+            chkAdministrative.Name = "chkAdministrative";
+            chkAdministrative.Size = new Size(230, 36);
+            chkAdministrative.TabIndex = 9;
+            chkAdministrative.Text = "Is administrative?";
+            chkAdministrative.UseVisualStyleBackColor = true;
+            // 
+            // txtPosition
+            // 
+            txtPosition.BackColor = Color.FromArgb(255, 224, 192);
+            txtPosition.Location = new Point(198, 66);
+            txtPosition.Name = "txtPosition";
+            txtPosition.Size = new Size(462, 39);
+            txtPosition.TabIndex = 8;
             // 
             // txtDivision
             // 
@@ -363,13 +374,15 @@
             label11.TabIndex = 0;
             label11.Text = "Position:";
             // 
-            // txtPosition
+            // btnDisplayProfile
             // 
-            txtPosition.BackColor = Color.FromArgb(255, 224, 192);
-            txtPosition.Location = new Point(198, 66);
-            txtPosition.Name = "txtPosition";
-            txtPosition.Size = new Size(462, 39);
-            txtPosition.TabIndex = 8;
+            btnDisplayProfile.Location = new Point(46, 913);
+            btnDisplayProfile.Name = "btnDisplayProfile";
+            btnDisplayProfile.Size = new Size(335, 46);
+            btnDisplayProfile.TabIndex = 9;
+            btnDisplayProfile.Text = "Display Profile";
+            btnDisplayProfile.UseVisualStyleBackColor = true;
+            btnDisplayProfile.Click += btnDisplayProfile_Click;
             // 
             // MainForm
             // 
@@ -377,6 +390,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(2374, 1329);
+            Controls.Add(btnDisplayProfile);
             Controls.Add(grpStaff);
             Controls.Add(grpStudent);
             Controls.Add(grpProfessor);
@@ -432,5 +446,7 @@
         private Label label10;
         private Label label11;
         private TextBox txtPosition;
+        private CheckBox chkAdministrative;
+        private Button btnDisplayProfile;
     }
 }
