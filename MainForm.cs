@@ -12,8 +12,11 @@ namespace MyFlaglerApp2026
             rdoProfessor.CheckedChanged += PersonTypeChanged;
             rdoStudent.CheckedChanged += PersonTypeChanged;
             rdoStaff.CheckedChanged += PersonTypeChanged;
+            
 
         }
+
+
 
         //We add the method here manually. :)
         private void PersonTypeChanged(object sender, EventArgs e)
@@ -32,6 +35,7 @@ namespace MyFlaglerApp2026
             else
                 grpProfessor.Visible = false;
             */
+                        
 
 
         }
@@ -40,6 +44,41 @@ namespace MyFlaglerApp2026
         {
             //Main event handler! :)
 
+            //Let's validate user inputs
+            if (!ValidateInput()) return;
+
         }
+
+        private bool ValidateInput() {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                txtName.Focus();
+                return ShowError("Name is requried!");
+            }
+
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                txtID.Focus();
+                return ShowError("ID is requried!");
+            }
+
+            if (rdoStudent.Checked && !double.TryParse(txtGPA.Text, out double gpa))
+            {
+                txtGPA.Focus();
+                return ShowError("Please enter a valid GPA!");
+            }
+
+            return true;
+        
+        }
+
+        //A helper method to generate the alert box!
+        private bool ShowError(string message) {
+            MessageBox.Show(message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
+
+
     }
 }
