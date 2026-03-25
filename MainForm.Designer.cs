@@ -60,6 +60,7 @@
             label10 = new Label();
             label11 = new Label();
             btnDisplayProfile = new Button();
+            lblResult = new Label();
             grpPersonnel.SuspendLayout();
             grpBasicInfo.SuspendLayout();
             grpProfessor.SuspendLayout();
@@ -384,12 +385,22 @@
             btnDisplayProfile.UseVisualStyleBackColor = true;
             btnDisplayProfile.Click += btnDisplayProfile_Click;
             // 
+            // lblResult
+            // 
+            lblResult.AutoSize = true;
+            lblResult.Location = new Point(485, 920);
+            lblResult.Name = "lblResult";
+            lblResult.Size = new Size(134, 32);
+            lblResult.TabIndex = 8;
+            lblResult.Text = "ResultLabel";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(2374, 1329);
+            Controls.Add(lblResult);
             Controls.Add(btnDisplayProfile);
             Controls.Add(grpStaff);
             Controls.Add(grpStudent);
@@ -409,6 +420,7 @@
             grpStaff.ResumeLayout(false);
             grpStaff.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -448,5 +460,6 @@
         private TextBox txtPosition;
         private CheckBox chkAdministrative;
         private Button btnDisplayProfile;
+        private Label lblResult;
     }
 }

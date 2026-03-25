@@ -47,9 +47,28 @@ namespace MyFlaglerApp2026
             //Let's validate user inputs
             if (!ValidateInput()) return;
 
+            //Let's do a dynamic object instantiation
+
+            try
+            {
+                //Polymophism the person class can hold any subclass instance!
+                Person person = CreatePerson();
+                if (person == null) return; //Did we instantiate any object?
+                lblResult.Text = person.GetDetails();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+
+
+
         }
 
         private bool ValidateInput() {
+            //early exit is preferred!
             if (string.IsNullOrEmpty(txtName.Text))
             {
                 txtName.Focus();
@@ -77,6 +96,57 @@ namespace MyFlaglerApp2026
             MessageBox.Show(message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
+
+        //A method to dynamically instantiate profile classes.
+
+        private Person CreatePerson()
+        {
+            Person person = null;
+            if (rdoProfessor.Checked)
+            {
+                person = new Professor
+                {
+                    //Grab the values from the input form for each profile.
+                    //These three are handled by the parent class.
+                    Name = txtName.Text,
+                    ID = txtID.Text,
+                    Email = txtEmail.Text,
+                    //These three are handled by the Professor subclass.
+                    Department = cboDepartment.Text,
+                    ResearchArea = txtResearchArea.Text,
+                    IsTerminalDegree = chkTerminalDegree.Checked,
+                };
+            }
+            else if (rdoStudent.Checked)
+            {
+                person = new Student
+                {
+                    Name = txtName.Text,
+                    ID = txtID.Text,
+                    Email = txtEmail.Text,
+                    Major = cboMajor.Text,
+                    GPA = double.Parse(txtGPA.Text), //this is safe because we already did the validation.
+                    IsFullTime = chkFullTime.Checked,
+                    EnrollmentDate = Convert.ToDateTime(dtpEnrollmentDate.Text)
+                };
+            }
+            else if (rdoStaff.Checked)
+            {
+                person = new Staff
+                {
+                    Name = txtName.Text,
+                    ID = txtID.Text,
+                    Email = txtEmail.Text,
+                    Position = txtPosition.Text,
+                    Division = txtDivision.Text,
+                    IsAdministrative = chkAdministrative.Checked
+                };
+            }
+
+            return person;
+
+        }
+
 
 
 
