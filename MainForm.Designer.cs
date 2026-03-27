@@ -61,11 +61,16 @@
             label11 = new Label();
             btnDisplayProfile = new Button();
             lblResult = new Label();
+            picProfile = new PictureBox();
+            btnUploadImage = new Button();
+            dgvPeople = new DataGridView();
             grpPersonnel.SuspendLayout();
             grpBasicInfo.SuspendLayout();
             grpProfessor.SuspendLayout();
             grpStudent.SuspendLayout();
             grpStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picProfile).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
             SuspendLayout();
             // 
             // grpPersonnel
@@ -394,12 +399,42 @@
             lblResult.TabIndex = 8;
             lblResult.Text = "ResultLabel";
             // 
+            // picProfile
+            // 
+            picProfile.Location = new Point(823, 124);
+            picProfile.Name = "picProfile";
+            picProfile.Size = new Size(368, 417);
+            picProfile.TabIndex = 10;
+            picProfile.TabStop = false;
+            // 
+            // btnUploadImage
+            // 
+            btnUploadImage.Location = new Point(1267, 495);
+            btnUploadImage.Name = "btnUploadImage";
+            btnUploadImage.Size = new Size(335, 46);
+            btnUploadImage.TabIndex = 11;
+            btnUploadImage.Text = "Upload Image";
+            btnUploadImage.UseVisualStyleBackColor = true;
+            btnUploadImage.Click += btnUploadImage_Click;
+            // 
+            // dgvPeople
+            // 
+            dgvPeople.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPeople.Location = new Point(47, 965);
+            dgvPeople.Name = "dgvPeople";
+            dgvPeople.RowHeadersWidth = 82;
+            dgvPeople.Size = new Size(2151, 454);
+            dgvPeople.TabIndex = 12;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
-            ClientSize = new Size(2374, 1329);
+            ClientSize = new Size(2374, 1446);
+            Controls.Add(dgvPeople);
+            Controls.Add(btnUploadImage);
+            Controls.Add(picProfile);
             Controls.Add(lblResult);
             Controls.Add(btnDisplayProfile);
             Controls.Add(grpStaff);
@@ -419,6 +454,8 @@
             grpStudent.PerformLayout();
             grpStaff.ResumeLayout(false);
             grpStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picProfile).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -461,5 +498,8 @@
         private CheckBox chkAdministrative;
         private Button btnDisplayProfile;
         private Label lblResult;
+        private PictureBox picProfile;
+        private Button btnUploadImage;
+        private DataGridView dgvPeople;
     }
 }

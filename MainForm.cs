@@ -2,6 +2,9 @@ namespace MyFlaglerApp2026
 {
     public partial class MainForm : Form
     {
+        //Declare some variables
+        string selectedImagePath = "";
+
         public MainForm()
         {
             InitializeComponent();
@@ -12,7 +15,34 @@ namespace MyFlaglerApp2026
             rdoProfessor.CheckedChanged += PersonTypeChanged;
             rdoStudent.CheckedChanged += PersonTypeChanged;
             rdoStaff.CheckedChanged += PersonTypeChanged;
-            
+
+            //Intialize our DGV
+            InitializeDataGridView();
+
+        }
+
+        private void InitializeDataGridView()
+        {
+            dgvPeople.Columns.Clear();
+            dgvPeople.Columns.Add("Type", "Person Type");
+            dgvPeople.Columns.Add("Name", "Name");
+            dgvPeople.Columns.Add("ID", "ID");
+            dgvPeople.Columns.Add("Details", "Details");
+
+            //don't forget to add the image column
+            var imageColumn = new DataGridViewImageColumn();
+            imageColumn.Name = "Image";  //ID
+            imageColumn.HeaderText = "Profile Image"; //Display text 
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom; //Scales automatically
+            dgvPeople.Columns.Add(imageColumn);
+
+            //Set the widths of the columns based on the data fields.
+            dgvPeople.Columns["Type"].Width = 220;
+            dgvPeople.Columns["Name"].Width = 300;
+            dgvPeople.Columns["ID"].Width = 200;
+            dgvPeople.Columns["Details"].Width = 800;
+            dgvPeople.Columns["Details"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvPeople.Columns["Image"].Width = 300;
 
         }
 
@@ -35,7 +65,7 @@ namespace MyFlaglerApp2026
             else
                 grpProfessor.Visible = false;
             */
-                        
+
 
 
         }
@@ -54,7 +84,7 @@ namespace MyFlaglerApp2026
                 //Polymophism the person class can hold any subclass instance!
                 Person person = CreatePerson();
                 if (person == null) return; //Did we instantiate any object?
-                lblResult.Text = person.GetDetails();
+                lblResult.Text = person.GetDetails(); //Call the method to generate output!
 
             }
             catch (Exception ex)
@@ -67,7 +97,8 @@ namespace MyFlaglerApp2026
 
         }
 
-        private bool ValidateInput() {
+        private bool ValidateInput()
+        {
             //early exit is preferred!
             if (string.IsNullOrEmpty(txtName.Text))
             {
@@ -88,11 +119,12 @@ namespace MyFlaglerApp2026
             }
 
             return true;
-        
+
         }
 
         //A helper method to generate the alert box!
-        private bool ShowError(string message) {
+        private bool ShowError(string message)
+        {
             MessageBox.Show(message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
@@ -143,11 +175,23 @@ namespace MyFlaglerApp2026
                 };
             }
 
-            return person;
+            return person;  //Don't forget to return the object back!
 
         }
 
-
+        private void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            using (var ofd = new OpenFileDialog())  //using is a safter way for handling run-time error
+            {
+                ofd.Filter = "Image Files|*.jpg;*.png;*.gif;*.jpeg"; //* wild card
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    selectedImagePath = ofd.FileName;
+                    picProfile.Image = Image.FromFile(selectedImagePath);
+                    picProfile.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+        }
 
 
     }
