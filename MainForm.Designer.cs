@@ -64,6 +64,8 @@
             picProfile = new PictureBox();
             btnUploadImage = new Button();
             dgvPeople = new DataGridView();
+            btnAddProfile = new Button();
+            btnViewDetail = new Button();
             grpPersonnel.SuspendLayout();
             grpBasicInfo.SuspendLayout();
             grpProfessor.SuspendLayout();
@@ -382,7 +384,7 @@
             // 
             // btnDisplayProfile
             // 
-            btnDisplayProfile.Location = new Point(46, 913);
+            btnDisplayProfile.Location = new Point(47, 906);
             btnDisplayProfile.Name = "btnDisplayProfile";
             btnDisplayProfile.Size = new Size(335, 46);
             btnDisplayProfile.TabIndex = 9;
@@ -426,12 +428,34 @@
             dgvPeople.Size = new Size(2151, 454);
             dgvPeople.TabIndex = 12;
             // 
+            // btnAddProfile
+            // 
+            btnAddProfile.Location = new Point(1730, 906);
+            btnAddProfile.Name = "btnAddProfile";
+            btnAddProfile.Size = new Size(220, 46);
+            btnAddProfile.TabIndex = 13;
+            btnAddProfile.Text = "Add Profile";
+            btnAddProfile.UseVisualStyleBackColor = true;
+            btnAddProfile.Click += btnAddProfile_Click;
+            // 
+            // btnViewDetail
+            // 
+            btnViewDetail.Location = new Point(1978, 906);
+            btnViewDetail.Name = "btnViewDetail";
+            btnViewDetail.Size = new Size(220, 46);
+            btnViewDetail.TabIndex = 14;
+            btnViewDetail.Text = "View Detail";
+            btnViewDetail.UseVisualStyleBackColor = true;
+            btnViewDetail.Click += btnViewDetail_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(2374, 1446);
+            Controls.Add(btnViewDetail);
+            Controls.Add(btnAddProfile);
             Controls.Add(dgvPeople);
             Controls.Add(btnUploadImage);
             Controls.Add(picProfile);
@@ -444,6 +468,18 @@
             Controls.Add(grpPersonnel);
             Name = "MainForm";
             Text = "Main Form";
+            Controls.SetChildIndex(grpPersonnel, 0);
+            Controls.SetChildIndex(grpBasicInfo, 0);
+            Controls.SetChildIndex(grpProfessor, 0);
+            Controls.SetChildIndex(grpStudent, 0);
+            Controls.SetChildIndex(grpStaff, 0);
+            Controls.SetChildIndex(btnDisplayProfile, 0);
+            Controls.SetChildIndex(lblResult, 0);
+            Controls.SetChildIndex(picProfile, 0);
+            Controls.SetChildIndex(btnUploadImage, 0);
+            Controls.SetChildIndex(dgvPeople, 0);
+            Controls.SetChildIndex(btnAddProfile, 0);
+            Controls.SetChildIndex(btnViewDetail, 0);
             grpPersonnel.ResumeLayout(false);
             grpPersonnel.PerformLayout();
             grpBasicInfo.ResumeLayout(false);
@@ -501,5 +537,7 @@
         private PictureBox picProfile;
         private Button btnUploadImage;
         private DataGridView dgvPeople;
+        private Button btnAddProfile;
+        private Button btnViewDetail;
     }
 }

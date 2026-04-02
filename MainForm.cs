@@ -1,10 +1,10 @@
 namespace MyFlaglerApp2026
 {
-    public partial class MainForm : Form
+    public partial class MainForm : BaseForm
     {
         //Declare some variables
         string selectedImagePath = "";
-
+        private List<Person> people = new List<Person>();
         public MainForm()
         {
             InitializeComponent();
@@ -179,6 +179,11 @@ namespace MyFlaglerApp2026
 
         }
 
+        protected override void UploadImage_Click(object sender, EventArgs e)
+        {
+            btnUploadImage.PerformClick(); // This triggers your button
+        }
+
         private void btnUploadImage_Click(object sender, EventArgs e)
         {
             using (var ofd = new OpenFileDialog())  //using is a safter way for handling run-time error
@@ -193,6 +198,112 @@ namespace MyFlaglerApp2026
             }
         }
 
+        private void btnAddProfile_Click(object sender, EventArgs e)
+        {
+            if (!ValidateInput()) return;
 
+            try
+            {
+                Person person = CreatePerson();
+                if (person == null) return;
+
+                //Set the image to the Image property, convert the physical image into bytes[]
+                if (!string.IsNullOrEmpty(selectedImagePath))
+                {
+                    person.ProfileImage = File.ReadAllBytes(selectedImagePath);
+                }
+
+                //Add the person object into the people list
+                people.Add(person);
+
+                //Display the people in the data view grid (table)
+                UpdateDisplay();
+
+                //ClearForm;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        private void UpdateDisplay()
+        {
+            dgvPeople.Rows.Clear(); // Clear existing rows
+
+            foreach (var person in people)
+            {
+                // Create a new row
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(dgvPeople);
+
+                // Populate the row with data
+                row.Cells[0].Value = person.GetType().Name; // Type (Student, Professor, Staff)
+                row.Cells[1].Value = person.Name; // Name
+                row.Cells[2].Value = person.ID; // ID
+                row.Cells[3].Value = person.GetDetails(); // Details
+
+                // Handle the image column
+                if (person.ProfileImage != null && person.ProfileImage.Length > 0)
+                {
+                    // Convert byte[] to Image
+                    using (var ms = new MemoryStream(person.ProfileImage))
+                    {
+                        Image image = Image.FromStream(ms); // Create the Image object
+                        row.Cells[4].Value = image; // Assign the Image to the cell
+                    }
+                }
+                else
+                {
+                    row.Cells[4].Value = null; // No image
+                }
+
+                row.Height = 70;
+
+                //Don't forget to add the row the grid
+                dgvPeople.Rows.Add(row);
+            }
+
+        }
+
+        private void btnViewDetail_Click(object sender, EventArgs e)
+        {
+            // Ensure the user has selected a row in the DataGridView
+            if (dgvPeople.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a profile to view details.");
+                return; // Stop execution if nothing is selected
+            }
+
+            // Get the index of the selected row
+            int selectedIndex = dgvPeople.SelectedRows[0].Index;
+
+            // Validate that the index is within the bounds of the people list
+            if (selectedIndex < 0 || selectedIndex >= people.Count)
+            {
+                MessageBox.Show("Invalid selection. Please try again.");
+                return;
+            }
+
+            // Retrieve the corresponding Person object from the list
+            Person selectedPerson = people[selectedIndex];
+
+            // Instantiate the secondary form and pass the selected Person object
+            ProfileDetailForm frmDetail = new ProfileDetailForm(selectedPerson);
+
+            // Hide the current form AFTER validation and object creation
+            // (prevents UI from disappearing if an error occurs earlier)
+            this.Hide();
+
+            // Show the detail form as a modal dialog
+            // This pauses the current form until the detail form is closed
+            frmDetail.ShowDialog();
+
+            // When the detail form is closed, show the main form again
+            this.Show();
+
+        }
     }
 }
