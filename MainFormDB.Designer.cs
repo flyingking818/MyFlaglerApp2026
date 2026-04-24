@@ -1,6 +1,6 @@
 ﻿namespace MyFlaglerApp2026
 {
-    partial class MainForm
+    partial class MainFormDB
     {
         /// <summary>
         ///  Required designer variable.
@@ -66,6 +66,8 @@
             dgvPeople = new DataGridView();
             btnAddProfile = new Button();
             btnViewDetail = new Button();
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             grpPersonnel.SuspendLayout();
             grpBasicInfo.SuspendLayout();
             grpProfessor.SuspendLayout();
@@ -330,7 +332,7 @@
             grpStaff.Controls.Add(txtDivision);
             grpStaff.Controls.Add(label10);
             grpStaff.Controls.Add(label11);
-            grpStaff.Location = new Point(1624, 609);
+            grpStaff.Location = new Point(1620, 609);
             grpStaff.Name = "grpStaff";
             grpStaff.Size = new Size(688, 263);
             grpStaff.TabIndex = 8;
@@ -422,7 +424,7 @@
             // dgvPeople
             // 
             dgvPeople.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPeople.Location = new Point(47, 965);
+            dgvPeople.Location = new Point(41, 1044);
             dgvPeople.Name = "dgvPeople";
             dgvPeople.RowHeadersWidth = 82;
             dgvPeople.Size = new Size(2151, 454);
@@ -430,7 +432,7 @@
             // 
             // btnAddProfile
             // 
-            btnAddProfile.Location = new Point(1730, 906);
+            btnAddProfile.Location = new Point(1738, 992);
             btnAddProfile.Name = "btnAddProfile";
             btnAddProfile.Size = new Size(220, 46);
             btnAddProfile.TabIndex = 13;
@@ -440,7 +442,7 @@
             // 
             // btnViewDetail
             // 
-            btnViewDetail.Location = new Point(1978, 906);
+            btnViewDetail.Location = new Point(1972, 992);
             btnViewDetail.Name = "btnViewDetail";
             btnViewDetail.Size = new Size(220, 46);
             btnViewDetail.TabIndex = 14;
@@ -448,38 +450,60 @@
             btnViewDetail.UseVisualStyleBackColor = true;
             btnViewDetail.Click += btnViewDetail_Click;
             // 
-            // MainForm
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.FromArgb(255, 224, 192);
+            txtSearch.Location = new Point(41, 999);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(462, 39);
+            txtSearch.TabIndex = 6;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(529, 995);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(335, 46);
+            btnSearch.TabIndex = 15;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // MainFormDB
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
-            ClientSize = new Size(2369, 1465);
+            ClientSize = new Size(2374, 1510);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
             Controls.Add(btnViewDetail);
             Controls.Add(btnAddProfile);
             Controls.Add(dgvPeople);
             Controls.Add(btnUploadImage);
+            Controls.Add(grpStudent);
             Controls.Add(picProfile);
             Controls.Add(lblResult);
-            Controls.Add(grpStudent);
             Controls.Add(btnDisplayProfile);
             Controls.Add(grpStaff);
             Controls.Add(grpProfessor);
             Controls.Add(grpBasicInfo);
             Controls.Add(grpPersonnel);
-            Name = "MainForm";
+            Name = "MainFormDB";
             Text = "Main Form";
             Controls.SetChildIndex(grpPersonnel, 0);
             Controls.SetChildIndex(grpBasicInfo, 0);
             Controls.SetChildIndex(grpProfessor, 0);
             Controls.SetChildIndex(grpStaff, 0);
             Controls.SetChildIndex(btnDisplayProfile, 0);
-            Controls.SetChildIndex(grpStudent, 0);
             Controls.SetChildIndex(lblResult, 0);
             Controls.SetChildIndex(picProfile, 0);
+            Controls.SetChildIndex(grpStudent, 0);
             Controls.SetChildIndex(btnUploadImage, 0);
             Controls.SetChildIndex(dgvPeople, 0);
             Controls.SetChildIndex(btnAddProfile, 0);
             Controls.SetChildIndex(btnViewDetail, 0);
+            Controls.SetChildIndex(txtSearch, 0);
+            Controls.SetChildIndex(btnSearch, 0);
             grpPersonnel.ResumeLayout(false);
             grpPersonnel.PerformLayout();
             grpBasicInfo.ResumeLayout(false);
@@ -539,5 +563,7 @@
         private DataGridView dgvPeople;
         private Button btnAddProfile;
         private Button btnViewDetail;
+        private TextBox txtSearch;
+        private Button btnSearch;
     }
 }

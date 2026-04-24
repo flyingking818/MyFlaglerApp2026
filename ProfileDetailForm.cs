@@ -11,7 +11,7 @@ namespace MyFlaglerApp2026
     public partial class ProfileDetailForm : BaseForm
     {
         private Person _person;
-        public ProfileDetailForm(Person person)
+        public ProfileDetailForm(Person person) //Custom constructor!
         {
             InitializeComponent();
             _person = person;

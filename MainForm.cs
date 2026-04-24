@@ -210,6 +210,7 @@ namespace MyFlaglerApp2026
                 //Set the image to the Image property, convert the physical image into bytes[]
                 if (!string.IsNullOrEmpty(selectedImagePath))
                 {
+                    //convert an image into byte[] type
                     person.ProfileImage = File.ReadAllBytes(selectedImagePath);
                 }
 
